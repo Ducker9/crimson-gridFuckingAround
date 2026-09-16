@@ -24,9 +24,9 @@
 	status_flags = (CANPUSH | CANSTUN | CANKNOCKDOWN)
 	gender = NEUTER // Gnomes have no inherent gender or understanding of what a gender is. It just gome.
 	mob_biotypes = MOB_CARBON
-	speak_emote = list("chirps")
-	speech_span = span_cult_italic // Could try span_changeling
-	bubble_icon = "machine"
+	speak_emote = list("Gloopies, Gloorpies")
+	speech_span = span_cult_italic // Could try span_changeling for the fae vibes
+	bubble_icon = "chirps"
 	initial_language_holder = /datum/language_holder/gnome
 	mob_size = MOB_SIZE_SMALL // Tiny?
 	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 0, STAMINA = 0, OXY = 0)
@@ -40,9 +40,6 @@
 	lighting_cutoff_blue = 25
 	worn_slot_flags = ITEM_SLOT_HEAD
 	inhand_holder_type = /obj/item/mob_holder/gnome
-	/// `TRUE` if we have picked our visual appearance, `FALSE` otherwise (default)
-	var/colour = "grey"
-	var/list/gnome_overlays[DRONE_TOTAL_LAYERS]
 	/// Drone laws announced on spawn, can be overridden for regular gnomes via config/gnome_laws.txt
 	var/laws = \
 	"1. You may not involve yourself in the matters of another being, even if such matters conflict with Law Two or Law Three, unless the other being is another Gnome.\n"+\
@@ -221,6 +218,3 @@
 			. += span_deadsay("A message repeatedly flashes on its display: \"REBOOT -- REQUIRED\".")
 		else
 			. += span_deadsay("A message repeatedly flashes on its display: \"ERROR -- OFFLINE\".")
-
-/mob/living/basic/gnome/electrocute_act(shock_damage, source, siemens_coeff, flags = NONE)
-	return FALSE //So they don't die trying to fix wiring
